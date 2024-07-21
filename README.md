@@ -19,15 +19,39 @@ where you could use the HTTPS or SSH URL of the repository as you prefer.
 mkdir build
 cd build
 cmake ../
+```
+#### MacOS:
+```
 make -j8
 ```
+#### Windows:
 
+Add the following line to the CMakeLists.txt before "add_subdirectory" line:
+```
+# make gtest link the runtimes dynamically
+SET(gtest_force_shared_crt on CACHE BOOL "Use shared (DLL) run-time lib even when Google Test is built as static lib.")
+```
+Then Continue the build process :
+```
+cd ..
+cmake --build build
+```
 ## How to Run
-In `build` folder, run the executable as below to run the main code (which is essentially doing nothing.)
+
+```
+cd build
+```
+#### Windows :
+For multi-config generators (e.g. Visual Studio), first navigate to the appropriate subdirectory
+```
+cd debug
+```
+#### Run .exe :
+Run the executable as below to run the main code (which is essentially doing nothing.) 
 ```
 ./RosaSimulator
-```
+ ```
 and the following to run the tests
-```
+``` 
 ./hello_test
 ```
