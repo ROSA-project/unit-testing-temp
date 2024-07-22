@@ -1,1 +1,0 @@
-double sum_double(double, double);

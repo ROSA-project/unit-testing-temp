@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 
 project (RosaSimulator VERSION 0.1)
 
+# make gtest link the runtimes dynamically
+SET(gtest_force_shared_crt on CACHE BOOL "Use shared (DLL) run-time lib even when Google Test is built as static lib.")
+
 # Add GoogleTest as a subdirectory
 add_subdirectory(googletest)
 
@@ -14,13 +17,15 @@ include_directories(src/utils)
 # Add executables for the project
 add_executable(
     ${PROJECT_NAME} 
-    src/utils/geometry_functions.cpp main.cpp
+    src/utils/sphereIntersection.cpp main.cpp
 )
 
 # Add executables for the tests
 add_executable(
-  hello_test
-  src/utils/geometry_functions_test.cpp src/utils/geometry_functions.cpp
+  test
+  src/utils/sphereIntersection_test.cpp src/utils/sphereIntersection.cpp
 )
 
-target_link_libraries(hello_test gtest_main)
+
+
+target_link_libraries(test gtest_main)
