@@ -1,5 +1,4 @@
-#ifndef sphereIntersection_H
-#define sphereIntersection_H
+#pragma once
 
 #include <cmath>
 
@@ -11,6 +10,4 @@ double square(double);
 
 double sphericalCapV(double, double);
 
-double sphereIntersection(const Point&, const Point&, double, double );
-
-#endif 
+double sphereIntersection(const Point&, const Point&, double, double, double);
